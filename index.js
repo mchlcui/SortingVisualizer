@@ -5,6 +5,7 @@ let min = 1;
 let max = 20;
 let numOfBars = 10;
 let curr_arr = new Array(numOfBars)
+let sorted = false;
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -43,9 +44,10 @@ async function selectionSort(arr) {
     let currbars = document.getElementsByClassName("bar");
     let minind = 0;
     for (let i = 0; i < arr.length; i++) {
+        minind = i;
         curr = arr[i]
         
-        for (let n = i; n < arr.length; n++) {
+        for (let n = i+1; n < arr.length; n++) {
             if (arr[n] < curr) {
                 curr = arr[n];
                 minind = n;
@@ -61,10 +63,17 @@ async function selectionSort(arr) {
         
     }
 
+    currbars[i-1].style.backgroundColor = "green";
+
     return arr;
 }
 
 sort_btn.addEventListener("click", function() {
+    if (sorted) {
+        location.reload();
+    } else {
+        sorted = true;
+    }
     let sorted_arr = selectionSort(curr_arr);
     console.log(sorted_arr);
 });
