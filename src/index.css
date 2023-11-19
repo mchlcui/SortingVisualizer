@@ -1,4 +1,4 @@
-*{
+/* *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -30,3 +30,8 @@
     transition: height 0.5s ease-in-out;
 }
 
+.button{
+    width: 80px;
+    background-color: lightblue;
+    height: 100px;
+} */
